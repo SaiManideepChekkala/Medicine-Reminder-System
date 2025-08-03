@@ -97,7 +97,6 @@ MedicineReminder/
 ├── rtc_defines.h // 📜 RTC macro constants
 ├── defines.h // ⚙️ General macro definitions
 └── types.h // 🧾 Custom data types (u32, u8, etc.)
- 
 
 ---
 
