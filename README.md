@@ -82,7 +82,8 @@ Repeat
 ---
 
 ## 📁 Project Structure
-'''
+
+```
 MedicineReminder/
 ├── main.c // 💡 Core program logic
 ├── delay.c // ⏱️ Delay function implementations
@@ -97,7 +98,8 @@ MedicineReminder/
 ├── rtc_defines.h // 📜 RTC macro constants
 ├── defines.h // ⚙️ General macro definitions
 └── types.h // 🧾 Custom data types (u32, u8, etc.)
-'''
+
+```
 ---
 
 ## 📤 How to Run
