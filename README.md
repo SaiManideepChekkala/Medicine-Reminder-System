@@ -32,6 +32,20 @@ A simple embedded system that alerts users to take their medicines on time. This
 
 ---
 
+## 🧰 Pin Connections
+
+| Component               | LPC2148 Pin            | Notes                                      |
+|------------------------|------------------------|--------------------------------------------|
+| LCD (16x2)             | PORT0 (via `lcd.h`)    | Data and control lines mapped in header    |
+| Keypad (4x4 Matrix)    | PORT0 (via `keypad.h`) | Custom row/column mapping                  |
+| Buzzer                 | P0.7                   | Controlled using macros `BUZZER_ON/OFF`    |
+| RTC Edit Button (SW1)  | P1.24                  | Used to enter the menu                     |
+| Acknowledge Button     | P1.25                  | Used to stop buzzer alert                  |
+| RTC                    | Internal               | Built-in RTC module in LPC2148             |
+
+> **Note:** The buzzer and switches are active-low. RTC is configured in software using internal registers — no external RTC IC required.
+
+---
 ## ⚙️ Working Principle
 
 1. **Initialization**: LCD, RTC, keypad, and buzzer are initialized.
@@ -67,21 +81,23 @@ Repeat
 
 ---
 
-## 📦 Project Structure
+## 📁 Project Structure
 
-```
-Medicine_Reminder_System/
-├── main.c                 # Embedded C source code
-├── makefile              # Makefile for compilation (if available)
-├── .hex                  # Hex file to flash on LPC2148
-├── README.md             # Project documentation
-```
-
----
-
-## 📸 Screenshots
-
-*Add images or circuit diagrams here*
+MedicineReminder/
+├── main.c // 💡 Core program logic
+├── delay.c // ⏱️ Delay function implementations
+├── delay.h // ⏱️ Delay function declarations
+├── keypad.c // ⌨️ Keypad scanning and input handling
+├── keypad.h // ⌨️ Keypad pin definitions and APIs
+├── lcd.c // 🖥️ LCD interface functions
+├── lcd.h // 🖥️ LCD header file
+├── lcd_defines.h // 📜 LCD command and macros
+├── rtc.c // 🕰️ RTC time/date handling and display
+├── rtc.h // 🕰️ RTC interface definitions
+├── rtc_defines.h // 📜 RTC macro constants
+├── defines.h // ⚙️ General macro definitions
+└── types.h // 🧾 Custom data types (u32, u8, etc.)
+ 
 
 ---
 
@@ -96,16 +112,16 @@ Medicine_Reminder_System/
 
 ---
 
-## 📃 License
+## 📌 Notes
 
-This project is intended for academic and learning purposes only.
+- Ensure RTC oscillator is properly configured on LPC2148 board.
+- Do not set invalid date/time values; the software handles basic validations.
 
 ---
-
 ## 👨‍💻 Author
 
-**Sai Manideep Chekkala**  
-📧 [saimanideep3101@gmail.com](mailto:saimanideep3101@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/sai-manideep-chekkala)  
-🔗 [GitHub](https://github.com/SaiManideepChekkala)
+- 🎓 Developed by: *Sai Manideep Chekkala*
+- 🏫 Embedded Systems Mini Project
+- 🎯 Tech: Embedded C, LPC2148, RTC, LCD, Keypad, Buzzer, File Handling
 
+---
